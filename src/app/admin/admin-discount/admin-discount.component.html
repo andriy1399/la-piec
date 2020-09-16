@@ -1,0 +1,45 @@
+<form>
+  <div class="form-group">
+    <label for="title">Title: </label>
+    <input type="text" class="form-control" id="title" [(ngModel)]="title" name="title">
+  </div>
+  <div class="form-group">
+    <label for="text">Text: </label>
+    <textarea class="form-control" id="text" rows="3" [(ngModel)]="text" name="text"></textarea>
+  </div>
+  <div class="form-group">
+    <label for="image">Image URL: </label>
+    <input type="text" class="form-control" id="image" [(ngModel)]="image" name="image">
+  </div>
+  <button *ngIf="!editStatus" type="button" class="btn btn-success" [disabled]="!title || !text || !image" (click)="addDiscount()">Add</button>
+  <button *ngIf="editStatus" type="button" class="btn btn-info" [disabled]="!title || !text || !image" (click)="saveDiscount()">Save</button>
+</form>
+<hr>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Title</th>
+      <th scope="col">Text</th>
+      <th scope="col">Image</th>
+      <th scope="col">Edit</th>
+      <th scope="col">Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let d of adminDiscount; index as i">
+      <td>{{ i+1 }}</td>
+      <td>{{ d.title }}</td>
+      <td>{{ d.text }}</td>
+      <td>
+        <img [src]="d.image" alt="" width="100px">
+      </td>
+      <td>
+        <input type="button" value="edit" class="btn btn-warning" (click)="editDiscount(d)">
+      </td>
+      <td>
+        <input type="button" value="delete" class="btn btn-danger" (click)="deleteDiscount(d)">
+      </td>
+    </tr>
+  </tbody>
+</table>

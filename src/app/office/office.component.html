@@ -1,0 +1,101 @@
+<div class="container">
+  <h1 class="h1 as mt-5">Особистий кабінет</h1>
+  <form class="order-form mt-4">
+    <h6 class="mb-2">Персональні дані</h6>
+    <div class="order-form__wrapper form-anime mt-2">
+      <input class="order-form__input input-s" type="text" [(ngModel)]="phone" name="phone" prefix="+38"
+        [mask]="phone ? '(000)000 00 00' : false">
+      <span class="placeholder" [ngClass]="{'input-anime': true}">Телефон*</span>
+    </div>
+    <div class="order-form__wrapper form-anime">
+      <input class="order-form__input input-s" type="text" [(ngModel)]="name" name="name">
+      <span class="placeholder" [ngClass]="{'input-anime': name}">Ваше ім'я* </span>
+    </div>
+    <div class="order-form__wrapper form-anime">
+      <input class="order-form__input input-s" type="text" [(ngModel)]="lastName" name="lastName">
+      <span class="placeholder" [ngClass]="{'input-anime': lastName}">Ваше прізвище* </span>
+    </div>
+    <div class="order-form__wrapper form-anime">
+      <input class="order-form__input input-s" type="text" [(ngModel)]="dateOfB" name="dateOfB">
+      <span class="placeholder" [ngClass]="{'input-anime': dateOfB}">День народження*</span>
+    </div>
+    <h6 class="mb-1 mt-2">Адреси доставки</h6>
+    <div class="d-flex justify-content-around mb-2">
+      <div class=" text-center ">
+        <a (click)="openModal(addAds)" class="btn-address">Додати</a>
+      </div>
+      <div class=" text-center ">
+        <a class="btn-address" (click)="openModalConfirm(confirmForm)">Видалити</a>
+      </div>
+    </div>
+    <div class="order-form__wrapper form-anime m-0 pl-0 mb-5">
+      <select class="order-form__select input-s " [(ngModel)]="address" name="address">
+        <option [value]="addr.toStr" *ngFor="let addr of addresses">
+          {{ addr.toStr }}
+        </option>
+      </select>
+      <span class="placeholder" [ngClass]="{'input-anime': address}">Місто*</span>
+    </div>
+    <div class="order-form__wrapper  mb-5 d-flex justify-content-around">
+      <div class="button add-to-cart-product btn-color-2" (click)="updateData()">Зберегти</div>
+      <div class="button add-to-cart-product btn-color-2">Відмінити</div>
+      <div class="button add-to-cart-product" (click)="signOut()">Вийти</div>
+
+    </div>
+  </form>
+</div>
+<ng-template #addAds>
+  <div class="modal-header">
+    <h6 class="modal-title pull-left">Додайте ваш адрес</h6>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="addAddressRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form class="order-form" style="width: 100%;">
+      <div class="order-form__address-form row m-0 p-0 mb-4">
+        <div class="order-form__wrapper form-anime col m-0 pl-0">
+          <select class="order-form__select input-s " [(ngModel)]="addressCity" name="addressCity">
+            <option value="Львів">Львів</option>
+            <option value="Стрий">Стрий</option>
+            <option value="Рудне">Рудне</option>
+            <option value="Брюховичі">Брюховичі</option>
+          </select>
+          <span class="placeholder" [ngClass]="{'input-anime': true}">Місто*</span>
+        </div>
+        <div class="order-form__wrapper form-anime  m-0 pl-0">
+          <input class="order-form__input input-s " type="text" [(ngModel)]="addressStreet" name="addressStreet">
+          <span class="placeholder" [ngClass]="{'input-anime': true}">Вулиця*</span>
+        </div>
+      </div>
+      <div class="order-form__address-form row m-0 p-0">
+        <div class="order-form__wrapper form-anime col-3 m-0 pl-0">
+          <input class="order-form__input input-s " type="text" [(ngModel)]="addressBuild" name="addressBuild">
+          <span class="placeholder" [ngClass]="{'input-anime': true}">Будинок*</span>
+        </div>
+        <div class="order-form__wrapper form-anime col-6 m-0 pl-0">
+
+          <input class="order-form__input input-s " type="number" [(ngModel)]="addressFlour" name="addressFlour">
+          <span class="placeholder" [ngClass]="{'input-anime': true}">Поверх*</span>
+
+        </div>
+        <div class="order-form__wrapper form-anime col-3 m-0 pr-0 pl-0">
+          <input class="order-form__input input-s " [(ngModel)]="addressHomeNumber" name="addressHomeNumber">
+          <span class="placeholder" [ngClass]="{'input-anime': true}">Квартира*</span>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer d-flex justify-content-center">
+    <div class="button add-to-cart-product " (click)="addAddressRef.hide()">Вийти</div>
+    <div class="button add-to-cart-product btn-color-2" (click)="addAddress()">Додати</div>
+  </div>
+</ng-template>
+<ng-template #confirmForm>
+  <div class="modal-body text-center">
+    <h6>Бажаєте видалити адресу?</h6>
+    <p class="text-danger mt-3">{{ address }}</p>
+    <div class="button add-to-cart-product mr-3" (click)="confirm()">Так</div>
+    <div class="button add-to-cart-product ml-3 btn-color-2" (click)="this.confirmRef.hide();">Ні</div>
+  </div>
+</ng-template>

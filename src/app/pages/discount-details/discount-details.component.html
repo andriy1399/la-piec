@@ -1,0 +1,12 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-6 m-auto">
+            <img [src]="discount?.image" width="100%" alt="">
+        </div>
+        <div class="col-12">
+            <h2 class="mt-3 mb-3">{{ discount?.title }}</h2>
+            <p>{{ discount?.text }}</p>
+        </div>
+        <button class="btn btn-danger" (click)="location.back()">Back</button>
+    </div>
+</div>

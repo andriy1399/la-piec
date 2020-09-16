@@ -1,0 +1,12 @@
+.active{
+    background-color: #343a40!important;
+    color: #f8f9fa!important;
+    &:hover {
+      color: #ffffffbf!important;
+    }
+    &:focus {
+      color: #ffffff!important;
+    }
+}
+
+

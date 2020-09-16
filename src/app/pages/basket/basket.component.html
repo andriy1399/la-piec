@@ -1,0 +1,147 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12" *ngIf="!orders.length">
+      <div class="emptySpace80 emptySpace-lt50 emptySpace-md35 emptySpace-xs0"></div>
+      <div class="sectionTitle fadeInTop d-flex flex-column justify-content-center align-items-center"
+        style="min-height: 35vh">
+        <p>Кошик порожній.</p>
+        <a routerLink="/home" style="color: #c80000">Замовити піцу</a>
+      </div>
+    </div>
+    <div class="col-lg-12 mt-5" *ngIf="orders.length">
+      <div class="row">
+        <div class="col-lg-12 col-lg-push-6 col-my-lt-12">
+          <div class="payItems smallSlideLeft animationDelay-1">
+            <div class="table">
+              <div class="tr thead">
+                <div class="tr">
+                  <div class="td"></div>
+                  <div class="td">Товар</div>
+                  <div class="td">Ціна</div>
+                  <div class="td">Кількість</div>
+                  <div class="td">Загалом</div>
+                </div>
+              </div>
+              <div class="tr tbody">
+                <div class="tr productOrder" *ngFor="let product of orders">
+                  <div class="td">
+                    <div class="delateProduct remove-cart-product-popup open-popup" (click)="deleteProduct(product.id)">
+                    </div>
+                  </div>
+                  <div class="td">
+                    <div class="smallProduct">
+                      <a class="imgWrapper" [style.backgroundImage]="'url('+ product?.image +')'"></a>
+                      <div class="smallProductInfo">
+                        <h6 class="h6 as"><a>{{product?.nameUA}}</a>
+                        </h6>
+                        <p></p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="td">
+                    <div class="singleItemPrice">
+                      <span>{{product?.price}}</span><i>грн</i>
+                    </div>
+                  </div>
+                  <div class="td">
+                    <div class="productCountWrapper">
+                      <span class="productCount lessProduct" (click)="productCount(false, product)"></span>
+                      <input type="text" maxlength="3" [(ngModel)]="product.count">
+                      <span class="productCount moreProduct" (click)="productCount(true, product)"></span>
+                    </div>
+                  </div>
+                  <div class="td">
+                    <div class="itemPrice productPrice">
+                      <b class="tableMobTitle">Загалом: </b><span>{{product?.count * product?.price}}</span><i>грн</i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="tr tfoot">
+                <div class="td">
+                  <div class="fullPrice cart-total">
+                    <div class="subFullPrice" style="display:none;">
+                      <span>299</span>
+                      <i>грн</i>
+                    </div>
+                    <div class="totalFullPrice" style="display:block;">
+                      <p>Загалом:</p>
+                      <span>{{totalPrice}}</span>
+                      <i>грн</i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <form class="order-form mt-4" *ngIf="orders.length">
+      <h4>Оберіть спосіб доставки</h4>
+      <div class="order-form__radio-group mt-2">
+        <div class="order-form__radio-wrapper">
+          <label for="delivery">
+            <input type="radio" name="delivery" id="delivery" checked>
+            <span class="new-radio"></span>
+            <span class="order-form__radio-text">Доставка</span>
+          </label>
+        </div>
+        <div class="order-form__radio-wrapper">
+          <label for="self-pickup">
+            <input type="radio" name="delivery" id="self-pickup">
+            <span class="new-radio"></span>
+            <span class="order-form__radio-text">Самовивіз</span>
+          </label>
+        </div>
+        <div class="order-form__radio-wrapper">
+          <label for="in-advance">
+            <input type="radio" name="delivery" id="in-advance">
+            <span class="new-radio"></span>
+            <span class="order-form__radio-text">Заздалегідь</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="order-form__wrapper form-anime mt-2">
+        <input class="order-form__input input-s" type="text" [(ngModel)]="name" name="name">
+        <span class="placeholder" [ngClass]="{'input-anime': name}">Ваше ім'я*</span>
+      </div>
+      <div class="order-form__wrapper form-anime">
+        <input class="order-form__input input-s" type="text" [(ngModel)]="phone" name="phone">
+        <span class="placeholder" [ngClass]="{'input-anime': phone}">Телефон*</span>
+      </div>
+      <div class="order-form__wrapper form-anime mb-3">
+        <textarea class="order-form__comment  input-s" [(ngModel)]="comment" name="comment"></textarea>
+        <span class="placeholder" [ngClass]="{'input-anime': comment}">Ваш коментар</span>
+      </div>
+      <div class="order-form__address-form row m-0 p-0 mb-4">
+        <div class="order-form__wrapper form-anime col-3 m-0 pl-0">
+          <select class="order-form__select input-s " [(ngModel)]="city" name="city">
+            <option value=""></option>
+            <option value="lviv">Львів</option>
+            <option value="lviv">Стрий</option>
+            <option value="lviv">Рудне</option>
+            <option value="lviv">Брюховичі</option>
+          </select>
+          <span class="placeholder" [ngClass]="{'input-anime': city}">Місто*</span>
+
+        </div>
+        <div class="order-form__wrapper form-anime col-6 m-0 pl-0">
+
+          <input class="order-form__input input-s " type="text" [(ngModel)]="street" name="street">
+          <span class="placeholder" [ngClass]="{'input-anime': street}">Вулиця*</span>
+
+        </div>
+        <div class="order-form__wrapper form-anime col-3 m-0 pr-0 pl-0">
+          <input class="order-form__input input-s " [(ngModel)]="house" name="house">
+          <span class="placeholder" [ngClass]="{'input-anime': house}">Будинок*</span>
+        </div>
+      </div>
+      <div class="order-form__wrapper  mb-3 d-flex justify-content-center ">
+        <div class="button add-to-cart-product " (click)="formOrder()">Замовити</div>
+      </div>
+    </form>
+  </div>
+</div>

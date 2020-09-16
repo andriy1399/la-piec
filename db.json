@@ -1,0 +1,139 @@
+{
+  "discounts": [
+    {
+      "id": 1,
+      "title": "Наша фірмова акція “2+1”",
+      "text": "Акція «2+1» діє в понеділок, вівторок, середу та четвер. Замовляйте дві піци та отримуйте ще одну безкоштовно!<br> * Безкоштовною вважається піца з найменшою вартістю.<br> ** Ця акція не поєднується з іншими акціями.",
+      "image": "https://www.lapiec-pizza.com.ua/wp-content/uploads/2020/05/aktsiya-dlya-sajta-21.jpg"
+    }
+  ],
+  "categories": [
+    {
+      "nameEN": "pizza",
+      "nameUA": "піца",
+      "id": 1
+    },
+    {
+      "nameEN": "salad",
+      "nameUA": "салат",
+      "id": 2
+    },
+    {
+      "nameEN": "drinks",
+      "nameUA": "напої",
+      "id": 3
+    }
+  ],
+  "products": [
+    {
+      "category": {
+        "nameEN": "drinks",
+        "nameUA": "напої",
+        "id": 3
+      },
+      "nameEN": "Cola",
+      "nameUA": "кока кола",
+      "description": "кока кола 1л",
+      "weight": "1л",
+      "price": 40,
+      "image": "https://firebasestorage.googleapis.com/v0/b/programmers-c8006.appspot.com/o/images%2Fcola0.5.jpg?alt=media&token=475adc05-2bcc-4623-9ad5-df056706befb",
+      "count": 1,
+      "id": 5
+    }
+  ],
+  "orders": [
+    {
+      "name": "Андрій Николин",
+      "phone": "0505916322",
+      "comment": "asdgasg",
+      "city": "lviv",
+      "street": "s",
+      "house": "1111",
+      "product": [
+        {
+          "category": {
+            "nameEN": "pizza",
+            "nameUA": "піца",
+            "id": 1
+          },
+          "nameEN": "kaprichoza",
+          "nameUA": "Капрічоза",
+          "description": "соус томатний, сир моцарела, шинка, свіжі гриби.",
+          "weight": "470 гр",
+          "price": 151,
+          "image": "https://firebasestorage.googleapis.com/v0/b/programmers-52d64.appspot.com/o/images%2FKaprichoza-1.png?alt=media&token=cf321723-e894-41fd-aab8-8a7608cb67d7",
+          "count": 2,
+          "id": 2
+        },
+        {
+          "category": {
+            "nameEN": "pizza",
+            "nameUA": "піца",
+            "id": 1
+          },
+          "nameEN": "lapiec",
+          "nameUA": "Піца La П’єц",
+          "description": "соус томатний, шинка, баварські ковбаски, сир моцарела, ковбаса салямі, прошуто.",
+          "weight": "480 гр",
+          "price": 167,
+          "image": "https://firebasestorage.googleapis.com/v0/b/programmers-52d64.appspot.com/o/images%2FLA-P_yets-1.png?alt=media&token=9174d5c3-d5a0-4ebb-a89e-955a65e06d8b",
+          "count": 1,
+          "id": 1
+        },
+        {
+          "category": {
+            "nameEN": "salad",
+            "nameUA": "салат",
+            "id": 2
+          },
+          "nameEN": "cesar",
+          "nameUA": "Салат Цезар зі смаженим курячим філе",
+          "description": "Салат айсберг, помідори, куряче м`ясо, сир пармезан, перепелині яйця, духмяні сухарики та фірмова заправка.",
+          "weight": " 250 гр ",
+          "price": 125,
+          "image": "https://firebasestorage.googleapis.com/v0/b/programmers-52d64.appspot.com/o/images%2FTSezar-z-kurkoyu.png?alt=media&token=1357d85f-b8de-4a90-811d-147ef7c9ff27",
+          "count": 1,
+          "id": 3
+        },
+        {
+          "category": {
+            "nameEN": "drinks",
+            "nameUA": "напої",
+            "id": 3
+          },
+          "nameEN": "rich-orange",
+          "nameUA": " Апельсиновий нектар з м'якоттю",
+          "description": "Апельсиновий нектар з м'якоттю, 1 л, ТМ “RICH”",
+          "weight": "1 л",
+          "price": 42,
+          "image": "https://firebasestorage.googleapis.com/v0/b/programmers-52d64.appspot.com/o/images%2Frich_orange.jpg?alt=media&token=d23aaafb-fc8c-4c69-98b7-d18baa1683c5",
+          "count": 1,
+          "id": 4
+        }
+      ],
+      "totalPrice": 636,
+      "id": 1
+    },
+    {
+      "product": [
+        {
+          "category": {
+            "nameEN": "salad",
+            "nameUA": "салат",
+            "id": 2
+          },
+          "nameEN": "cesar",
+          "nameUA": "Салат Цезар зі смаженим курячим філе",
+          "description": "Салат айсберг, помідори, куряче м`ясо, сир пармезан, перепелині яйця, духмяні сухарики та фірмова заправка.",
+          "weight": " 250 гр ",
+          "price": 125,
+          "image": "https://firebasestorage.googleapis.com/v0/b/programmers-52d64.appspot.com/o/images%2FTSezar-z-kurkoyu.png?alt=media&token=1357d85f-b8de-4a90-811d-147ef7c9ff27",
+          "count": 3,
+          "id": 3
+        }
+      ],
+      "totalPrice": 375,
+      "id": 2
+    }
+  ]
+}

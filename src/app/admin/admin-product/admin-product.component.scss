@@ -1,0 +1,16 @@
+.image-box {
+  height: 200px;
+  display: flex;
+  align-items: center;
+}
+
+.image-box svg {
+  width: 2em;
+  height: 2em;
+  margin-left: 10px;
+}
+
+.image-box svg:hover {
+  color: red;
+  cursor: pointer;
+}
